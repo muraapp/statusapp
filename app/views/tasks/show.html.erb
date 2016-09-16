@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>ステータス:</strong>
+  <%= task_status(@task.status) %>
+</p>
+
+<% if @task.status == 1 %>
+  <%= link_to '公開する', task_release_path(@task), data: {confirm: '公開しますか？'} %> |
+<% else %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+<% end %>
+  <%= link_to 'Back', tasks_path %>

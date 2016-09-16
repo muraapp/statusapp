@@ -1,0 +1,17 @@
+<h3>以下の内容で、登録する。</h3>
+
+<%= form_for(@task) do |f| %>
+  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :status %>
+
+  <!-- @blog.titleと@blog.contentとすることで、表示用の値を画面に出力しています。 -->
+  <p>タイトル:<%= @task.title %></p>
+  <%= f.submit "登録" %>
+<% end %>
+
+<%= form_for(@task, url: new_path, method: 'post') do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :status %>
+  <%= f.submit "もどる", name: 'back' %>
+<% end %>
